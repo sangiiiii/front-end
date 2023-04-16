@@ -1,0 +1,42 @@
+<head>
+    <link rel="stylesheet" href="bus-details-list.component.css">
+   </head>
+   
+   <div class="banner">  
+    <div class="navbar">
+      
+      <ul>
+       <li><a href="http://localhost:4200/busDetails">BusDetailsList</a></li>
+       <li><a href="http://localhost:4200/create-bus-details">Add BusDetails</a></li>
+       <li><a href="http://localhost:4200">Log Out</a></li>
+      </ul>
+    </div><table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> Starting Point</th>
+            <th> Ending Point</th>
+            <th> Driver Name </th>
+            <th> Driver Number</th>
+            <th> Bus Id</th>
+            <th> Bus Number</th>
+            <th> Bus Type</th>
+            <th> Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let bus of busDetails" >
+            <td> {{ bus.startingPoint}} </td>
+            <td> {{ bus.endingPoint}} </td>
+            <td> {{ bus.driverName }} </td>
+            <td> {{ bus.driverNumber}} </td>
+            <td> {{ bus.busId}} </td>
+            <td> {{ bus.busNumber }} </td>
+            <td> {{ bus.busType }} </td>
+            <td>
+                <button (click) = "updateBusDetails(bus.busId)" class = "btn btn-warning"> Update</button>
+                <button (click) = "deleteBusDetails(bus.busId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "BusDetails(bus.busId)" class = "btn btn-warning" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
